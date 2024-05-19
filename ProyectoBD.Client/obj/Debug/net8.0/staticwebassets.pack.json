@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Colibecas\\Desktop\\Progra Web\\Blazor\\ProyectoBD\\ProyectoBD\\ProyectoBD.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\Desktop\\Progra Web\\Blazor\\ProyectoBD\\ProyectoBD\\ProyectoBD.Client\\obj\\Debug\\net8.0\\compressed\\dnlmfru01n.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\Desktop\\Progra Web\\Blazor\\ProyectoBD\\ProyectoBD\\ProyectoBD.Client\\wwwroot\\appsettings.Development.json",
+      "PackagePath": "staticwebassets\\appsettings.Development.json"
+    },
+    {
+      "Id": "C:\\Users\\Colibecas\\Desktop\\Progra Web\\Blazor\\ProyectoBD\\ProyectoBD\\ProyectoBD.Client\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProyectoBD.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ProyectoBD.Client.props",
+      "PackagePath": "build\\ProyectoBD.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ProyectoBD.Client.props",
+      "PackagePath": "buildMultiTargeting\\ProyectoBD.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ProyectoBD.Client.props",
+      "PackagePath": "buildTransitive\\ProyectoBD.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

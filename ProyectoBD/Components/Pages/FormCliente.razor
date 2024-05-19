@@ -1,0 +1,80 @@
+﻿@page "/ /nueva"
+@page "/ /editar/{Id:int}"
+@rendermode InteractiveServer
+@using ProyectoBD.Data;
+@inject IRepositorio _repositorio
+@inject NavigationManager _navigation
+
+<div class="m-2 p-4 bg-light text-dark">
+
+<h2 class="mb-2">Datos del cliente</h2>
+
+<EditForm Model="_cliente" FormName="frmCliente" OnInvalidSubmit="Guardar">
+    <DataAnnotationsValidator />
+    <div class="form-group mb-3">
+        <label for="Nombre">Nombre</label>
+        <InputText id="Nombre" class="form-control" @bind-Value="_cliente.Nombre" placeholder="Verónica Mayday" />
+        <ValidationMessage For="()=>_cliente.Nombre" />
+
+    </div>
+    <div class="form-group mb-3">
+        <label for="Direccion">Dirección</label>
+            <InputText id="Direccion" class="form-control" @bind-Value="_cliente.Direccion" placeholder="Privada Flores 14" />
+        <ValidationMessage For="()=>_cliente.Direccion" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="Telefono">Teléfono</label>
+        <InputText id="Telefono" class="form-control" @bind-Value="_cliente.Telefono" placeholder="31211548952" />
+        <ValidationMessage For="()=>_cliente.Telefono" />
+    </div>
+</EditForm>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<button class="btn btn-dark btn-sm" @onclick="Guardar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
+        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+    </svg> Guardar
+</button>
+
+<button class="btn btn-danger btn-sm" @onclick="Cancelar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+    </svg> Cancelar
+</button>
+</div>
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Cliente _cliente = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id > 0)
+        {
+            _cliente = await _repositorio.Get(Id);
+        }
+    }
+
+    private async void Guardar()
+    {
+        if (Id > 0)
+        {
+            await _repositorio.Update(Id, _cliente);
+            _navigation.NavigateTo("/");
+        }
+        else
+        {
+            await _repositorio.Add(_cliente);
+        }
+        Cancelar();
+    }
+    private void Cancelar()
+    {
+        _navigation.NavigateTo("/");
+    }
+}

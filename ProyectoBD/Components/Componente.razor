@@ -1,0 +1,23 @@
+﻿@*NO NECESARIO*@
+@using Microsoft.EntityFrameworkCore
+@using ProyectoBD.Data;
+
+<h3>Componente</h3>
+
+<QuickGrid Items="_clientes">
+    <QuickGridColumns>
+        <QuickGridColumn Title="Nombre" Field="@nameof(Cliente.Nombre)" />
+        <QuickGridColumn Title="Direccion" Field="@nameof(Cliente.Direccion)" />
+        <QuickGridColumn Title="Teléfono" Field="@nameof(Cliente.Telefono)" />
+    </QuickGridColumns>
+    <QuickGridRows Items="_clientes" />
+</QuickGrid>
+
+@code {
+    private IQueryable<Cliente> _clientes = new List<Cliente>
+    {
+        new Cliente { Nombre = "Carlos", Direccion = "Villa flores 125", Telefono = "1111111111" },
+        new Cliente { Nombre = "Sofia", Direccion = "Loma bonita 48", Telefono = "2222222222" },
+        new Cliente { Nombre = "Maria", Direccion = "Playa azul 951", Telefono = "3333333333" }
+    }.AsQueryable();
+}
